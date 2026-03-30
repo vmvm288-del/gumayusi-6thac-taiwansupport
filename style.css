@@ -1,0 +1,304 @@
+:root {
+  --text-main: #fffaf8;
+  --text-sub: rgba(255, 255, 255, 0.84);
+  --text-dim: rgba(255, 255, 255, 0.62);
+
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --card-shadow: 0 18px 46px rgba(28, 33, 84, 0.16);
+
+  --container-width: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Noto Sans TC",
+    "Segoe UI",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    sans-serif;
+  line-height: 1.7;
+  color: var(--text-main);
+  background: linear-gradient(90deg, #d79a82 0%, #2f4287 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--container-width), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ===== 導覽 ===== */
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.nav-inner {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ===== 內容區 ===== */
+
+.section,
+.section.alt {
+  padding: 78px 0;
+}
+
+.section h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.section p,
+.section li {
+  color: var(--text-sub);
+}
+
+.info-grid,
+.feature-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.info-grid,
+.feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.faq-list {
+  display: grid;
+  gap: 18px;
+}
+
+.info-card,
+.feature-card,
+.faq-item,
+.host-profile-card {
+  border-radius: 24px;
+  padding: 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.info-title,
+.feature-card h3,
+.faq-item h3 {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.location-name,
+.location-address,
+.event-date,
+.event-time {
+  margin: 0 0 10px;
+}
+
+.contact-center {
+  margin-top: 28px;
+  text-align: center;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ===== 主辦人 ===== */
+
+.host-profile-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.host-profile-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.host-label {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.host-profile-content h3 {
+  margin: 0 0 14px;
+}
+
+.organizer-note {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* ===== 手機 ===== */
+
+@media (max-width: 900px) {
+  .info-grid,
+  .feature-grid,
+  .host-profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .host-profile-image {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 28px, var(--container-width));
+  }
+
+  .nav-inner {
+    min-height: 60px;
+  }
+
+
+  .section,
+  .section.alt {
+    padding: 56px 0;
+  }
+
+  .info-card,
+  .feature-card,
+  .faq-item,
+  .host-profile-card {
+    padding: 22px;
+  }
+
+  .host-profile-image img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 68px);
+  overflow: hidden;
+
+  background: url("./images/kv.png") center center / cover no-repeat;
+
+  /* 防止裁切時邊緣太醜 */
+  background-color: #d79a82;
+}
+.nav-inner {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.75;
+}
+
+.sub-hero {
+  padding: 96px 0 56px;
+  background: linear-gradient(90deg, #d79a82 0%, #2f4287 100%);
+}
+
+.sub-hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.sub-hero p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.progress-list {
+  display: grid;
+  gap: 20px;
+}
+
+.progress-card {
+  border-radius: 24px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 46px rgba(28, 33, 84, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+.progress-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.progress-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.progress-date {
+  margin: 0 0 10px !important;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.62) !important;
+}
